@@ -16,6 +16,7 @@
     "url": "https://github.com/AkaiZhao/react-cover.git"
   },
   "keywords": [
+    "react-loading",
     "react-cover",
     "hover",
     "react",
@@ -29,9 +30,9 @@
   },
   "homepage": "https://github.com/AkaiZhao/react-cover",
   "peerDependencies": {
-    "prop-types": "^15.7.2",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0"
+    "react-dom": ">=16.8.0",
+    "react-loading": "^2.0.3"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.12.1",
@@ -39,7 +40,6 @@
     "@types/react-dom": "^16.9.8",
     "css-loader": "^5.0.0",
     "mini-css-extract-plugin": "^1.2.0",
-    "prop-types": "^15.7.2",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.6",

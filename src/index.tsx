@@ -1,13 +1,13 @@
 import './style.css'
 import * as React from 'react'
-import { string } from 'prop-types'
-
+import ReactLoading from 'react-loading';
 
 type CoverProps = {
-  coverAdornment: JSX.IntrinsicElements,
+  coverAdornment: Function,
   on: boolean,
   color: string,
   opacity: React.ReactText,
+  loadingProps: any
 }
 
 type ContainerSize = {
@@ -18,11 +18,13 @@ type ContainerSize = {
 
 const Cover: React.FunctionComponent<CoverProps> = ({
   children,
-  coverAdornment,
+  coverAdornment, // replace loading element
 
-  on = false,
-  color = '',
+  on = false, // toggle loading 
   opacity = 0.4,
+  loadingProps = {
+    type: 'spin',
+  }, // component ReactLoading in react-loading's porps
 }) => {
 
   const parentRef = React.useRef<HTMLDivElement>(null)
@@ -32,15 +34,12 @@ const Cover: React.FunctionComponent<CoverProps> = ({
     const childs: Element[] = Array.from(parentRef.current ? parentRef.current.children : [])
     let width: number = 0
     let height: number = 0
-    console.log(1);
 
     function getAbsoluteHeight(el: Element) {
       const EL = el as HTMLElement
-      var styles = window.getComputedStyle(EL);
 
-      var margin = parseFloat(styles['marginTop']) +
-        parseFloat(styles['marginBottom']);
-      console.log(margin, EL.offsetHeight);
+      const styles = window.getComputedStyle(EL);
+      const margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom']);
 
       return Math.ceil(EL.offsetHeight + margin);
     }
@@ -52,13 +51,10 @@ const Cover: React.FunctionComponent<CoverProps> = ({
           if (width < image.clientWidth) width = image.clientWidth
           height += image.offsetHeight
         } else {
-          console.log(getAbsoluteHeight(el));
-
           if (width < el.getBoundingClientRect().width) width = el.getBoundingClientRect().width
           height += getAbsoluteHeight(el)
         }
       }
-      console.log('final', width, height);
 
       setContainerSize(() => ({
         width: `${width}px`,
@@ -74,34 +70,10 @@ const Cover: React.FunctionComponent<CoverProps> = ({
 
   return (
     <div className="rc__root" style={containerSize}>
-      <div className={`
-        ${on
-          ? 'rc__cover--on'
-          : 'rc__cover--off'
-        } 
-        ${color}
-      `}>
-        {coverAdornment ||
-          <svg className="rc__cover" width={32} height={32} x="0px" y="0px" viewBox="0 0 50 50" >
-            <path fill={color} d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
-              <animateTransform
-                attributeType="xml"
-                attributeName="transform"
-                type="rotate"
-                from="0 25 25"
-                to="360 25 25"
-                dur="0.6s"
-                repeatCount="indefinite" />
-            </path>
-          </svg>
-        }
-
+      <div className={on ? 'rc__cover--on' : 'rc__cover--off'}>
+        {coverAdornment?.({ className: "rc__cover" }) || <ReactLoading className="rc__cover" {...loadingProps} />}
       </div>
-      <div
-        className="rc__children--blur"
-        style={{ opacity: on ? opacity : 1 }}
-        ref={parentRef}
-      >
+      <div ref={parentRef} className="rc__children--blur" style={{ opacity: on ? opacity : 1 }}>
         {children}
       </div>
     </div>
