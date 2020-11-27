@@ -1,6 +1,6 @@
 {
-  "name": "react-cover-test-akaizhao",
-  "version": "0.0.3",
+  "name": "react-cover",
+  "version": "1.0.0",
   "description": "React component for cover anything on your element",
   "license": "MIT",
   "main": "dist/lib.min.js",
