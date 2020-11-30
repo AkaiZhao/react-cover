@@ -6,7 +6,7 @@ Loading component is use [react-loading](https://github.com/fakiolinho/react-loa
 這個組件是主要目的是用於當loading時提示使用者loading狀態或是蓋上任何元素來提示使用者而生。\
 加載元件是使用 [react-loading](https://github.com/fakiolinho/react-loading)
 
-![image]('https://github.com/AkaiZhao/react-cover/blob/main/demo.gif')
+![image](./demo.gif)
 
 ## Install
 ```
