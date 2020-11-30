@@ -40,12 +40,19 @@ const Cover: React.FunctionComponent<CoverProps> = ({
   const parentRef = React.useRef<HTMLDivElement>(null)
   const [containerSize, setContainerSize] = React.useState<ContainerSize | undefined>(undefined)
 
+  // set width and height on load
   React.useEffect(() => {
-    const childs: Element[] = Array.from(parentRef.current ? parentRef.current.children : [])
-    let width: number = 0
-    let height: number = 0
-
     const loadFn = () => {
+      // reset children size
+      setContainerSize(() => ({
+        width: '100%',
+        height: '100%',
+      }))
+
+      const childs: Element[] = Array.from(parentRef.current ? parentRef.current.children : [])
+      let width: number = 0
+      let height: number = 0
+
       for (let el of childs) {
         if (el.tagName === 'IMG') {
           let image = el as HTMLImageElement
@@ -63,8 +70,11 @@ const Cover: React.FunctionComponent<CoverProps> = ({
     }
 
     window.addEventListener('load', loadFn)
-    return () => window.removeEventListener('load', loadFn)
-
+    window.addEventListener('resize', loadFn)
+    return () => {
+      window.removeEventListener('load', loadFn)
+      window.removeEventListener('resize', loadFn)
+    }
   }, [children, parentRef])
 
   return (
