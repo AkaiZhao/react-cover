@@ -1,11 +1,16 @@
 import './style.css';
 import * as React from 'react';
-declare type CoverProps = {
-    coverAdornment: Function;
+import { LoadingProps, LoadingType } from 'react-loading';
+interface CoverProps {
     on: boolean;
-    color: string;
-    opacity: React.ReactText;
-    loadingProps: any;
-};
+    opacity?: React.ReactText;
+    color?: string;
+    type?: LoadingType;
+    size?: number;
+    loadingProps?: LoadingProps;
+    coverAdornment?: Function;
+    inline?: boolean;
+    cursor?: string;
+}
 declare const Cover: React.FunctionComponent<CoverProps>;
 export default Cover;

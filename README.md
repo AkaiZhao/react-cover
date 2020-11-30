@@ -58,6 +58,7 @@ const FullWidthComponent = ({ on = false }) => (
 |opacity|string\|number|0.4|opacity for covered element|
 |color|string|'#333'|control loading color |
 |type|string|'spin'|control loading type of react-loading loading type|
+|size|number|32|control loading size|
 |loadingProps|object|{}|[react-loading](https://github.com/fakiolinho/react-loading)'s props|
 |coverAdornment|jsx function|-|custom your loading style replace [react-loading](https://github.com/fakiolinho/react-loading)|
 |inline|boolean|false|if children is display inline add this prop|

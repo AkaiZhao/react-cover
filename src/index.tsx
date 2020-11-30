@@ -7,6 +7,7 @@ interface CoverProps {
   opacity?: React.ReactText;
   color?: string;
   type?: LoadingType;
+  size?: number;
   loadingProps?: LoadingProps;
   coverAdornment?: Function;
   inline?: boolean;
@@ -34,7 +35,7 @@ const Cover: React.FunctionComponent<CoverProps> = ({
   loadingProps = {}, // component ReactLoading in react-loading's porps
   inline = false,
   cursor = 'initial',
-
+  size = 32,
   coverAdornment, // replace loading element
   children,
 }) => {
@@ -85,6 +86,8 @@ const Cover: React.FunctionComponent<CoverProps> = ({
             className="rc__cover"
             color={color}
             type={type}
+            width={size}
+            height={size}
             {...loadingProps}
           />
         }
