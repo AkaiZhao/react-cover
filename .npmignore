@@ -1,4 +1,7 @@
-webpack.config.js
+webpack.*.js
 yarn.lock
 yarn-error.log
 .babelrc
+demo.gif
+tsconfig.json
+node_modules/*

@@ -5,7 +5,6 @@ const library = 'lib'
 
 module.exports = {
   mode: 'production',
-  devtool: 'source-map',
   entry: './src/index.tsx',
   output: {
     path: path.join(__dirname, 'dist'),
