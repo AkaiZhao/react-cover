@@ -1,7 +1,6 @@
 import './style.css'
 import * as React from 'react'
 import ReactLoading, { LoadingProps, LoadingType } from 'react-loading';
-
 interface CoverProps {
   on: boolean;
   opacity?: React.ReactText;
@@ -17,7 +16,6 @@ interface CoverProps {
 interface ContainerSize {
   width: string;
   height: string;
-  display: string;
 }
 
 function getAbsoluteHeight(el: Element): number {
@@ -58,11 +56,9 @@ const Cover: React.FunctionComponent<CoverProps> = ({
           height += getAbsoluteHeight(el)
         }
       }
-
       setContainerSize(() => ({
         width: `${width}px`,
         height: `${height}px`,
-        display: 'inline-block'
       }))
     }
 
