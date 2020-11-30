@@ -1,32 +1,43 @@
 import './style.css'
 import * as React from 'react'
-import ReactLoading from 'react-loading';
+import ReactLoading, { LoadingProps, LoadingType } from 'react-loading';
 
-type CoverProps = {
-  coverAdornment: Function,
-  on: boolean,
-  color: string,
-  opacity: React.ReactText,
-  loadingProps: any
+interface CoverProps {
+  on: boolean;
+  opacity?: React.ReactText;
+  color?: string;
+  type?: LoadingType;
+  loadingProps?: LoadingProps;
+  coverAdornment?: Function;
+  inline?: boolean;
+  cursor?: string
 }
 
-type ContainerSize = {
-  width: string,
-  height: string,
-  display: string,
+interface ContainerSize {
+  width: string;
+  height: string;
+  display: string;
+}
+
+function getAbsoluteHeight(el: Element): number {
+  const EL = el as HTMLElement
+  const styles = window.getComputedStyle(EL)
+  const margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom'])
+  return Math.ceil(EL.offsetHeight + margin)
 }
 
 const Cover: React.FunctionComponent<CoverProps> = ({
-  children,
-  coverAdornment, // replace loading element
-
   on = false, // toggle loading 
   opacity = 0.4,
-  loadingProps = {
-    type: 'spin',
-  }, // component ReactLoading in react-loading's porps
-}) => {
+  color = '#333', // for react-loading
+  type = 'spin', // for react-loading
+  loadingProps = {}, // component ReactLoading in react-loading's porps
+  inline = false,
+  cursor,
 
+  coverAdornment, // replace loading element
+  children,
+}) => {
   const parentRef = React.useRef<HTMLDivElement>(null)
   const [containerSize, setContainerSize] = React.useState<ContainerSize | undefined>(undefined)
 
@@ -34,15 +45,6 @@ const Cover: React.FunctionComponent<CoverProps> = ({
     const childs: Element[] = Array.from(parentRef.current ? parentRef.current.children : [])
     let width: number = 0
     let height: number = 0
-
-    function getAbsoluteHeight(el: Element) {
-      const EL = el as HTMLElement
-
-      const styles = window.getComputedStyle(EL);
-      const margin = parseFloat(styles['marginTop']) + parseFloat(styles['marginBottom']);
-
-      return Math.ceil(EL.offsetHeight + margin);
-    }
 
     const loadFn = () => {
       for (let el of childs) {
@@ -69,14 +71,28 @@ const Cover: React.FunctionComponent<CoverProps> = ({
   }, [children, parentRef])
 
   return (
-    <div className="rc__root" style={containerSize}>
+    <div
+      className="rc__root"
+      style={{
+        display: inline ? 'inline-block' : 'block',
+        cursor,
+        ...containerSize,
+      }}
+    >
       <div className={on ? 'rc__cover--on' : 'rc__cover--off'}>
-        {coverAdornment?.({ className: "rc__cover" }) || <ReactLoading className="rc__cover" {...loadingProps} />}
+        {coverAdornment?.({ className: "rc__cover" }) ||
+          <ReactLoading
+            className="rc__cover"
+            color={color}
+            type={type}
+            {...loadingProps}
+          />
+        }
       </div>
       <div ref={parentRef} className="rc__children--blur" style={{ opacity: on ? opacity : 1 }}>
         {children}
       </div>
-    </div>
+    </div >
   )
 }
 
