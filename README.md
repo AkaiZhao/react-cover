@@ -60,3 +60,5 @@ const FullWidthComponent = ({ on = false }) => (
 |type|string|'spin'|control loading type of react-loading loading type|
 |loadingProps|object|{}|[react-loading](https://github.com/fakiolinho/react-loading)'s props|
 |coverAdornment|jsx function|-|custom your loading style replace [react-loading](https://github.com/fakiolinho/react-loading)|
+|inline|boolean|false|if children is display inline add this prop|
+|cursor|string|initial|control your cursor style when active|

@@ -33,7 +33,7 @@ const Cover: React.FunctionComponent<CoverProps> = ({
   type = 'spin', // for react-loading
   loadingProps = {}, // component ReactLoading in react-loading's porps
   inline = false,
-  cursor,
+  cursor = 'initial',
 
   coverAdornment, // replace loading element
   children,
