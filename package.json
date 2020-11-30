@@ -1,6 +1,6 @@
 {
   "name": "react-cover",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "React component for cover anything over your element",
   "license": "MIT",
   "main": "dist/lib.min.js",
