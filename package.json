@@ -1,7 +1,7 @@
 {
   "name": "react-cover",
-  "version": "1.0.0",
-  "description": "React component for cover anything on your element",
+  "version": "1.0.1",
+  "description": "React component for cover anything over your element",
   "license": "MIT",
   "main": "dist/lib.min.js",
   "types": "types/index.d.ts",
@@ -18,12 +18,11 @@
   "keywords": [
     "react-loading",
     "react-cover",
-    "hover",
     "react",
     "react-component"
   ],
   "author": {
-    "name": "akaizhao"
+    "name": "AkaiZhao"
   },
   "bugs": {
     "url": "https://github.com/AkaiZhao/react-cover/issues"
