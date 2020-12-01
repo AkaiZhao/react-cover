@@ -40,6 +40,12 @@ module.exports = {
       commonjs2: 'react-dom',
       amd: 'react-dom',
     },
+    'react-loading': {
+      root: 'ReactLoading',
+      commonjs: 'react-loading',
+      commonjs2: 'react-loading',
+      amd: 'react-loading',
+    }
   }
   
 
