@@ -1,23 +1,25 @@
 # REACT-COVER
 
-The main feature of this component is to prompt user when loading.
-Loading component is use [react-loading](https://github.com/fakiolinho/react-loading).
+![](https://img.shields.io/npm/v/react-cover)
+![](https://img.shields.io/bundlephobia/min/react-cover)
 
-這個組件是主要目的是用於當loading時提示使用者loading狀態或是蓋上任何元素來提示使用者而生。\
-加載元件是使用 [react-loading](https://github.com/fakiolinho/react-loading)
+A react component that support you make a loading style when loading status.
+Loading component is use [react-loading](https://github.com/fakiolinho/react-loading).
 
 ![image](./demo.gif)
 
 ## Install
+
 ```
 npm i react-cover
-
+```
 or
-
+```
 yarn add react-cover
 ```
 
 ## Demo
+
 [DEMO LINK](https://codesandbox.io/s/react-cover-demo-yv8cw)
 
 ## Usage

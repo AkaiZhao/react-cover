@@ -1,12 +1,12 @@
 {
   "name": "react-cover",
-  "version": "1.0.3",
-  "description": "React component for cover anything over your element",
+  "version": "1.0.4",
+  "description": "A React component. Cover a loading style over element",
   "license": "MIT",
   "main": "dist/lib.min.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist && webpack",
+    "build": "rm -rf dist types && webpack",
     "prepublish": "npm run build",
     "start": "webpack -w",
     "pretest": "npm run lint"
@@ -39,6 +39,7 @@
     "@types/react-dom": "^16.9.8",
     "css-loader": "^5.0.0",
     "mini-css-extract-plugin": "^1.2.0",
+    "react-loading": "^2.0.3",
     "rimraf": "^3.0.2",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.6",
