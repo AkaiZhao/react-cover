@@ -1,12 +1,12 @@
 # REACT-COVER
 
 ![](https://img.shields.io/npm/v/react-cover)
-![](https://img.shields.io/bundlephobia/min/react-cover)
+![](https://img.shields.io/bundlephobia/minzip/react-cover)
 
 A react component that support you make a loading style when loading status.
 Loading component is use [react-loading](https://github.com/fakiolinho/react-loading).
 
-![image](./demo.gif)
+![image](https://github.com/AkaiZhao/react-cover/blob/main/demo.gif?raw=true)
 
 ## Install
 
