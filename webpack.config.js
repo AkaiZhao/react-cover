@@ -14,9 +14,7 @@ module.exports = (_, argv) => ({
     rules: [
       {
         test: /\.tsx?$/,
-        exclude: [
-          path.resolve(__dirname, '/src/__test__/'),
-        ],
+        exclude: /\.test\.tsx?$/,
         use: {
           loader: 'babel-loader',
           options: {
