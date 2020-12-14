@@ -6,11 +6,12 @@
   "main": "dist/index.min.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "build": "rm -rf dist types && webpack",
     "prepublish": "npm run build",
+    "build": "rm -rf dist types && webpack",
     "start": "webpack --mode=development -w",
-    "pretest": "eslint src/*",
     "pack-d": "npm pack --dry-run",
+    "lint": "eslint src --ext .ts,.tsx",
+    "pretest": "yarn lint",
     "test": "jest"
   },
   "repository": {
@@ -58,10 +59,10 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-react": "^7.21.5",
+    "husky": "^4.3.6",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "mini-css-extract-plugin": "^1.2.0",
-    "prepush": "^3.1.11",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "react-loading": "^2.0.3",
@@ -73,8 +74,10 @@
     "webpack": "^5.2.0",
     "webpack-cli": "^4.1.0"
   },
-  "prepush": [
-    "yarn test",
-    "yarn pack-d"
-  ]
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint",
+      "pre-push": "yarn test"
+    }
+  }
 }
