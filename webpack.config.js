@@ -1,31 +1,29 @@
 const path = require('path')
-const webpack = require('webpack')
 
-const library = 'lib'
-
-module.exports = {
-  mode: 'production',
+module.exports = (_, argv) => ({
+  mode: argv.mode || 'production',
   entry: './src/index.tsx',
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: library + '.min.js',
+    path: argv['output-path'] || path.join(__dirname, 'dist'),
+    filename: 'lib.min.js',
     library: 'react-cover',
     libraryTarget: 'umd',
   },
+  devtool: argv.mode === 'development' ? 'source-map' : false,
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: ['ts-loader']
+        use: ['ts-loader'],
       },
       {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader']
-      }
-    ]
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
   },
   resolve: {
-    extensions: [ '.ts', '.tsx', '.js' ]
+    extensions: ['.ts', '.tsx', '.js'],
   },
   externals: {
     react: {
@@ -45,8 +43,7 @@ module.exports = {
       commonjs: 'react-loading',
       commonjs2: 'react-loading',
       amd: 'react-loading',
-    }
-  }
-  
+    },
+  },
 
-}
+})
