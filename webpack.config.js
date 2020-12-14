@@ -5,8 +5,8 @@ module.exports = (_, argv) => ({
   entry: './src/index.tsx',
   output: {
     path: argv['output-path'] || path.join(__dirname, 'dist'),
-    filename: 'lib.min.js',
-    library: 'react-cover',
+    filename: 'index.min.js',
+    library: 'ReactCover',
     libraryTarget: 'umd',
   },
   devtool: argv.mode === 'development' ? 'source-map' : false,
@@ -14,6 +14,9 @@ module.exports = (_, argv) => ({
     rules: [
       {
         test: /\.tsx?$/,
+        exclude: [
+          path.resolve(__dirname, '/src/__test__/'),
+        ],
         use: {
           loader: 'babel-loader',
           options: {
