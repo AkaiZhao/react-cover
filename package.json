@@ -8,8 +8,9 @@
   "scripts": {
     "build": "rm -rf dist types && webpack",
     "prepublish": "npm run build",
-    "start": "webpack -w",
-    "pretest": "npm run lint"
+    "start": "webpack --mode=development -w",
+    "pretest": "eslint src/*",
+    "test-pack": "npm pack --dry-run"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,15 @@
     "@babel/preset-typescript": "^7.12.1",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
     "css-loader": "^5.0.0",
+    "eslint": "^7.15.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-react": "^7.21.5",
     "mini-css-extract-plugin": "^1.2.0",
     "react-loading": "^2.0.3",
     "rimraf": "^3.0.2",
