@@ -10,7 +10,7 @@
     "prepublish": "npm run build",
     "start": "webpack --mode=development -w",
     "pretest": "eslint src/*",
-    "test-pack": "npm pack --dry-run"
+    "pack-dry": "npm pack --dry-run"
   },
   "repository": {
     "type": "git",
@@ -35,11 +35,16 @@
     "react-loading": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/preset-typescript": "^7.12.1",
+    "@babel/core": "^7.12.9",
+    "@babel/preset-env": "^7.12.7",
+    "@babel/preset-react": "^7.12.7",
+    "@babel/preset-typescript": "^7.12.7",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.2.2",
     "css-loader": "^5.0.0",
     "eslint": "^7.15.0",
     "eslint-config-standard": "^16.0.2",
