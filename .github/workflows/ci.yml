@@ -1,0 +1,25 @@
+name: Test Coveralls
+
+on: ["push","pull_request"]
+env: 
+  CI: true
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10.x
+
+      - name: npm inastall
+        run: npm install
+
+      - name: test-coverage
+        run: npm run coverage
+
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
