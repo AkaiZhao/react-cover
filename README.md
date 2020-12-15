@@ -1,7 +1,8 @@
 # REACT-COVER
 
-![](https://img.shields.io/npm/v/react-cover)
+[![](https://img.shields.io/npm/v/react-cover)](https://www.npmjs.com/package/react-cover)
 ![](https://img.shields.io/bundlephobia/minzip/react-cover)
+[![Coverage Status](https://coveralls.io/repos/github/AkaiZhao/react-cover/badge.svg?branch=test/add-coveralls)](https://coveralls.io/github/AkaiZhao/react-cover?branch=test/add-coveralls)
 
 A react component that support you make a loading style when loading status.
 Loading component is use [react-loading](https://github.com/fakiolinho/react-loading).
@@ -20,7 +21,7 @@ yarn add react-cover
 
 ## Demo
 
-[DEMO LINK](https://codesandbox.io/s/react-cover-demo-yv8cw)
+[DEMO LINK](https://akaizhao.github.io/react-cover/)
 
 ## Usage
 
