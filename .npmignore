@@ -10,3 +10,4 @@ examples
 .github
 jest.*
 .eslint*
+coverage
