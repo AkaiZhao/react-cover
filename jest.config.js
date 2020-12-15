@@ -4,4 +4,7 @@ module.exports = {
   moduleNameMapper: {
     '^.+\\.(css|less)$': 'identity-obj-proxy',
   },
+  testEnvironmentOptions: {
+    resources: 'usable',
+  },
 }
