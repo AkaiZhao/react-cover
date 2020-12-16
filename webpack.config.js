@@ -16,10 +16,7 @@ module.exports = (_, argv) => ({
         test: /\.tsx?$/,
         exclude: /\.test\.tsx?$/,
         use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/typescript', '@babel/preset-env'],
-          },
+          loader: 'ts-loader',
         },
       },
       {
