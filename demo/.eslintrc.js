@@ -20,6 +20,7 @@ module.exports = {
   ],
   rules: {
     'no-unused-vars': 1,
-    'react/prop-types': 0
+    'react/prop-types': 0,
+    'react/display-name': 0
   }
 }

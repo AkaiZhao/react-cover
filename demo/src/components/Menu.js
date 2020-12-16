@@ -5,6 +5,9 @@ import styled from 'utils/styled'
 const ListMenu = styled('div')`
   width: 25%; 
   padding-top: 20px;
+  _MD {
+    display: none;
+  }
 `
 
 const List = styled('ul')`

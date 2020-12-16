@@ -19,6 +19,9 @@ const Container = styled('div')`
 const Main = styled('main')`
   padding-top: 16px;
   width: 75%;
+  _MD {
+    width: 100%;
+  }
 `
 
 const App = () => {

@@ -8,9 +8,12 @@ const MEDIA = {
   LG: `@media (max-width: ${media.lg}px)`
 }
 
-const styled = (tagNmae) =>
+const styled = (tagName) =>
   (style = [], ...keys) => {
-    if (!Array.isArray(style)) return styledComponent[tagNmae](style)
+    if (!Array.isArray(style)) {
+      if (typeof tagName === 'string') return styledComponent[tagName](style)
+      else return styledComponent(tagName)(style)
+    }
 
     const styleString = style.map((str) => {
       while (1) {
@@ -21,7 +24,8 @@ const styled = (tagNmae) =>
       return str
     })
 
-    return styledComponent[tagNmae](styleString, ...keys)
+    if (typeof tagName === 'string') return styledComponent[tagName](styleString, ...keys)
+    else return styledComponent(tagName)(styleString, ...keys)
   }
 
 export default styled

@@ -7,7 +7,7 @@
   "main": "dist/index.min.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "demo": "yarn workspace react-cover-demo start",
+    "demo": "yarn workspace demo",
     "build-demo": "yarn workspace react-cover-demo build && rimraf docs && mv demo/build docs",
     "prepublish": "npm run build",
     "build": "rm -rf dist types && webpack",

@@ -1,5 +1,5 @@
 {
-  "name": "react-cover-demo",
+  "name": "demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -7,7 +7,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
-    "react-cover": "^1.0.4",
+    "react-cover": "^1.0.7",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
     "react-syntax-highlighter": "^15.3.1",
