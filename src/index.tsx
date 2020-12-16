@@ -19,6 +19,7 @@ interface ContainerSize {
 }
 
 const initialContainerSize: ContainerSize = { width: '', height: '' }
+const getStyleNumber = (el:Element, key: any):number => Number(window.getComputedStyle(el)[key].replace('px', ''))
 
 const Cover: React.FunctionComponent<CoverProps> = ({
   on, // toggle loading
@@ -36,41 +37,37 @@ const Cover: React.FunctionComponent<CoverProps> = ({
   const parentRef = React.useRef<HTMLDivElement>(null)
   const [containerSize, setContainerSize] = React.useState<ContainerSize>(initialContainerSize)
 
-  React.useEffect(() => {
-    const { width, height } = containerSize
-    if (width === '' && height === '') {
-      setContainerSize({
-        width: parentRef.current?.getBoundingClientRect().width!,
-        height: parentRef.current?.getBoundingClientRect().height!,
-      })
-    }
-  }, [containerSize])
-
-  // set width and height when resize
-  React.useEffect(() => {
-    const handleResize = () => setContainerSize(initialContainerSize) // reset size
-    window.addEventListener('resize', handleResize)
-    return () => window.removeEventListener('resize', handleResize)
-  }, [children, parentRef])
-
-  // set width and height on load
-  React.useEffect(() => {
+  const computedChildSize = () => {
     setContainerSize(initialContainerSize) // reset size
+
+    let width = 0
+    let height = 0
+
     const childs: Element[] = Array.from(parentRef.current!.children!)
     for (const el of childs) {
       // fix can't correct to get image size before image loaded
-      if (el.tagName !== 'IMG') continue
       const imageEl = el as HTMLImageElement
-      if (imageEl.complete) continue
-      imageEl.onload = () => setContainerSize({
-        width: parentRef.current?.getBoundingClientRect().width!,
-        height: parentRef.current?.getBoundingClientRect().height!,
-      })
+      if (el.tagName === 'IMG' && !imageEl.complete) {
+        imageEl.onload = () => computedChildSize()
+      } else {
+        const size = el.getBoundingClientRect()
+        const computedWidth = getStyleNumber(el, 'marginLeft') + getStyleNumber(el, 'marginRight') + size.width
+        const computedHeight = getStyleNumber(el, 'marginTop') + getStyleNumber(el, 'marginBottom') + size.height
+
+        width = width > computedWidth ? width : computedWidth
+        height = height + computedHeight
+      }
     }
-    setContainerSize({
-      width: parentRef.current?.getBoundingClientRect().width!,
-      height: parentRef.current?.getBoundingClientRect().height!,
-    })
+    setContainerSize({ width, height })
+  }
+
+  React.useEffect(() => {
+    computedChildSize()
+    const handleResize = () => {
+      computedChildSize()
+    }// reset size
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
   }, [children, parentRef])
 
   return (
