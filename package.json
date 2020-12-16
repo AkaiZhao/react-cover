@@ -1,12 +1,14 @@
 {
   "name": "react-cover",
+  "private": true,
   "version": "1.0.8",
   "description": "A React component. Cover a loading style over element",
   "license": "MIT",
   "main": "dist/index.min.js",
   "types": "types/index.d.ts",
   "scripts": {
-    "demo": "cd ./demo && yarn && yarn start",
+    "demo": "yarn workspace react-cover-demo start",
+    "build-demo": "yarn workspace react-cover-demo build && rimraf docs && mv demo/build docs",
     "prepublish": "npm run build",
     "build": "rm -rf dist types && webpack",
     "start": "webpack --mode=development -w",
@@ -16,6 +18,9 @@
     "test": "jest",
     "coverage": "jest  --coverage"
   },
+  "workspaces": [
+    "demo"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/AkaiZhao/react-cover.git"
