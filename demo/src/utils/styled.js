@@ -1,11 +1,10 @@
 import styledComponent from 'styled-components'
-import media from './media'
 
 const MEDIA = {
-  XS: `@media (max-width: ${media.xs}px)`,
-  SM: `@media (max-width: ${media.sm}px)`,
-  MD: `@media (max-width: ${media.md}px)`,
-  LG: `@media (max-width: ${media.lg}px)`
+  XS: '@media (max-width: 576px)',
+  SM: '@media (max-width: 767.98px)',
+  MD: '@media (max-width: 991.98px)',
+  LG: '@media (max-width: 1199.98px)'
 }
 
 const styled = (tagName) =>
