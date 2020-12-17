@@ -1,6 +1,6 @@
 {
   "name": "react-cover",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A React component. Cover a loading style over element",
   "license": "MIT",
   "main": "dist/index.min.js",
