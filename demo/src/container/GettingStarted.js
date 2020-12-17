@@ -1,10 +1,10 @@
 import React from 'react'
 import { Container } from 'components/Layout'
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter'
-import { darcula } from 'react-syntax-highlighter/dist/esm/styles/prism'
 import styled from 'styled-components'
+import FloatContain from 'components/FloatContain'
+import Code from 'components/Code'
 
-const Code = styled.code`
+const Highlight = styled.code`
   padding: 1px 2px;
   background-color: #ededed;
 `
@@ -21,18 +21,31 @@ const GettingStarted = () => {
         <a target="_blank" rel="noreferrer" href="https://github.com/fakiolinho/react-loading">
           react-loading
         </a>
-        ,
-        {' '}
+        {', '}
         to implementation loading style.
       </p>
       <p>You can also custom your cover style by yourself!</p>
-      <h3>Installation</h3>
-      <p>Install in your <Code>package.json</Code> dependencies: </p>
-      <SyntaxHighlighter style={darcula}>
-        {`npm install react-cover
+      <h3 id="installation">Installation</h3>
+      <p>Install in your <Highlight>package.json</Highlight> dependencies: </p>
+      <FloatContain>
+        <Code>
+          {'npm install react-cover\n\nyarn add react-cover'}
+        </Code>
+      </FloatContain>
+      <h3 id="basic-usage">Basic Usage</h3>
+      <p>This is the basic way to use <Highlight>react-cover</Highlight>.</p>
+      <p>Import <Highlight>react-cover</Highlight> and set prop <Highlight>on</Highlight>.</p>
+      <FloatContain>
+        <Code language="jsx">
+          {`import Cover from 'react-cover'
 
-yarn add react-cover`}
-      </SyntaxHighlighter>
+const Component = () => (
+  <Cover on>
+    {content}
+  </Cover>
+)`}
+        </Code>
+      </FloatContain>
     </Container>
   )
 }

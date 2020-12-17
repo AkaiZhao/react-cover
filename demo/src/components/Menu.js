@@ -4,6 +4,7 @@ import styled from 'utils/styled'
 
 const ListMenu = styled('div')`
   width: 25%; 
+  padding-top: 20px;
 `
 
 const List = styled('ul')`
@@ -14,12 +15,12 @@ const List = styled('ul')`
 
 const ListItemStyle = styled('li')`
   list-style: none;
-padding: 12px ${props => props.nested ? 48 : 24}px;
+  padding: 12px ${props => props.nested ? 48 : 24}px;
   margin: 0;
   color: #222;
 
   &:hover {
-   color: rgba(0,0,0,.4);
+    color: rgba(0,0,0,.4);
   }
   .link_active & {
     font-weight: bold;
@@ -55,9 +56,10 @@ const Menu = () => {
     window.addEventListener('scroll', e => {
       const menuTop = menuRef?.current?.getBoundingClientRect().top
       if (!menuTop) return
-      if (menuTop < 60) {
+      const top = 20
+      if (menuTop < top) {
         listRef.current.style.position = 'fixed'
-        listRef.current.style.top = '58px'
+        listRef.current.style.top = `${top}px`
       } else {
         listRef.current.style = {}
       }
@@ -75,7 +77,7 @@ const Menu = () => {
       const top = window.pageYOffset
       const anchors = document.querySelectorAll('.anchor')
       anchors.forEach(e => {
-        const paddingTop = 120
+        const paddingTop = 60
         const distance = top - e.offsetTop + paddingTop
         const totalHeight = e.clientHeight
         if (totalHeight - distance < totalHeight && distance < (totalHeight - paddingTop)) {
@@ -104,14 +106,14 @@ const Menu = () => {
               {item.name}
             </ListItem>
             {item.children && item.children.map(item => (
-              <ListItemStyle
+              <ListItem
                 key={item.href}
                 href={item.href}
                 nested
                 active={currentHash === item.href}
               >
                 {item.name}
-              </ListItemStyle>
+              </ListItem>
             )) }
           </React.Fragment>
         ))}

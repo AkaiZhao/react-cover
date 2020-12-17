@@ -7,9 +7,8 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.1",
-    "react-cover": "^1.0.3",
+    "react-cover": "^1.0.4",
     "react-dom": "^17.0.1",
-    "react-markdown": "^5.0.3",
     "react-scripts": "4.0.1",
     "react-syntax-highlighter": "^15.3.1",
     "styled-components": "^5.2.1",
@@ -18,7 +17,7 @@
   "homepage": "https://akaizhao.github.io/react-cover/",
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && mv build docs && rm -rf ../docs && mv docs ../",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

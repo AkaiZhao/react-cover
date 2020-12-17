@@ -4,9 +4,6 @@ import styled from '../utils/styled'
 // import githubIcon from '../assets/github-icon.svg'
 
 const AppNav = styled('nav')`
-  position: sticky;
-  top: 0;
-  z-index:100000;
   padding: 12px 24px;
   background-color: #282c34;
   color: #eee;

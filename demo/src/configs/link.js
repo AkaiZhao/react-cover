@@ -1,7 +1,17 @@
 const LINKS = [
   {
     name: 'Getting Started',
-    href: '#getting-started'
+    href: '#getting-started',
+    children: [
+      {
+        name: 'Installation',
+        href: '#installation'
+      },
+      {
+        name: 'Basic Usage',
+        href: '#basic-usage'
+      }
+    ]
   },
   {
     name: 'Demo',
@@ -11,10 +21,6 @@ const LINKS = [
     name: 'Document',
     href: '#document',
     children: [
-      {
-        name: 'Basic Usage',
-        href: '#basic-usage'
-      },
       {
         name: 'With React Loading',
         href: '#with-react-loading'
