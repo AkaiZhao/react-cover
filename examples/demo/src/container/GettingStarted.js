@@ -23,9 +23,9 @@ const GettingStarted = () => {
         </a>
         ,
         {' '}
-        to made loading style.
+        to implementation loading style.
       </p>
-      <p>You can alse custom your loading style or any content by yourself.</p>
+      <p>You can also custom your cover style by yourself!</p>
       <h3>Installation</h3>
       <p>Install in your <Code>package.json</Code> dependencies: </p>
       <SyntaxHighlighter style={darcula}>

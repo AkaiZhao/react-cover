@@ -15,7 +15,7 @@
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },
-  "homepage": "https://AkaiZhao.github.io/react-cover",
+  "homepage": "https://akaizhao.github.io/react-cover/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
