@@ -11,3 +11,5 @@ examples
 jest.*
 .eslint*
 coverage
+demo
+docs

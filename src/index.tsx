@@ -1,6 +1,7 @@
 import './style.css'
 import * as React from 'react'
 import ReactLoading, { LoadingProps, LoadingType } from 'react-loading'
+import { getElWidth, getElHeight } from './utils/calcSize'
 interface CoverProps {
   on: boolean;
   opacity?: React.ReactText;
@@ -19,7 +20,6 @@ interface ContainerSize {
 }
 
 const initialContainerSize: ContainerSize = { width: '', height: '' }
-const getStyleNumber = (el:Element, key: any):number => Number(window.getComputedStyle(el)[key].replace('px', ''))
 
 const Cover: React.FunctionComponent<CoverProps> = ({
   on, // toggle loading
@@ -41,7 +41,7 @@ const Cover: React.FunctionComponent<CoverProps> = ({
     setContainerSize(initialContainerSize) // reset size
 
     let width = 0
-    let height = 0
+    const height = getElHeight(parentRef.current!)
 
     const childs: Element[] = Array.from(parentRef.current!.children!)
     for (const el of childs) {
@@ -50,15 +50,15 @@ const Cover: React.FunctionComponent<CoverProps> = ({
       if (el.tagName === 'IMG' && !imageEl.complete) {
         imageEl.onload = () => computedChildSize()
       } else {
-        const size = el.getBoundingClientRect()
-        const computedWidth = getStyleNumber(el, 'marginLeft') + getStyleNumber(el, 'marginRight') + size.width
-        const computedHeight = getStyleNumber(el, 'marginTop') + getStyleNumber(el, 'marginBottom') + size.height
-
+        const computedWidth = getElWidth(el)
         width = width > computedWidth ? width : computedWidth
-        height = height + computedHeight
       }
     }
-    setContainerSize({ width, height })
+
+    setContainerSize({
+      width,
+      height,
+    })
   }
 
   React.useEffect(() => {
@@ -80,7 +80,7 @@ const Cover: React.FunctionComponent<CoverProps> = ({
         ...containerSize,
       }}
     >
-      <div className={`rc__cover--${on ? 'on' : 'off'}`}>
+      <div className='rc__cover--on' style={{ display: on ? '' : 'none' }}>
         { coverAdornment?.({ className: 'rc__cover' }) ||
           <ReactLoading
             className="rc__cover"

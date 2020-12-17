@@ -1,7 +1,7 @@
 const path = require('path')
 
 module.exports = (_, argv) => ({
-  mode: argv.mode || 'production',
+  mode: 'production',
   entry: './src/index.tsx',
   output: {
     path: argv['output-path'] || path.join(__dirname, 'dist'),

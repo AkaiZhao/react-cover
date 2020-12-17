@@ -40,7 +40,6 @@ describe('test cover component props', () => {
 
     wrapper.setProps({ on: false })
     expect(wrapper.exists('.rc__root')).toBe(true)
-    expect(wrapper.exists('.rc__cover--off')).toBe(true)
   })
 
   it('check display style', () => {
