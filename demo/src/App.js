@@ -9,6 +9,7 @@ import Installation from 'container/GettingStarted'
 import styled from 'utils/styled'
 import media from 'utils/media'
 import Menu from 'components/Menu'
+import Documents from 'container/Document'
 
 const Container = styled('div')`
   padding-top: 36px;
@@ -33,6 +34,7 @@ const App = () => {
         <Main>
           <Installation/>
           <Demo/>
+          <Documents/>
         </Main>
         <Menu/>
       </Container>

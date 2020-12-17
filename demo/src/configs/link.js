@@ -18,8 +18,8 @@ const LINKS = [
     href: '#demo'
   },
   {
-    name: 'Document',
-    href: '#document',
+    name: 'Documents',
+    href: '#documents',
     children: [
       {
         name: 'With React Loading',
@@ -28,6 +28,10 @@ const LINKS = [
       {
         name: 'Custom',
         href: '#custom'
+      },
+      {
+        name: 'Props',
+        href: '#Props'
       }
     ]
   }
