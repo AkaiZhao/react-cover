@@ -9,7 +9,9 @@
     "react": "^17.0.1",
     "react-cover": "^1.0.3",
     "react-dom": "^17.0.1",
+    "react-markdown": "^5.0.3",
     "react-scripts": "4.0.1",
+    "react-syntax-highlighter": "^15.3.1",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
   },

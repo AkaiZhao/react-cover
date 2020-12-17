@@ -12,19 +12,16 @@ const styled = (tagNmae) =>
   (style = [], ...keys) => {
     if (!Array.isArray(style)) return styledComponent[tagNmae](style)
 
-    let styleString = style.reduce((res, styleString, i, array) => {
-      res = res + styleString
-      if (array[i + 1] && keys[i]) res = res + keys[i]
-      return res
-    }, '')
+    const styleString = style.map((str) => {
+      while (1) {
+        const mediaStyle = str.match(/(XS|SM|MD|LG)/gs)
+        if (mediaStyle) str = str.replace(/_(XS|SM|MD|LG)/, MEDIA[mediaStyle[0]])
+        else break
+      }
+      return str
+    })
 
-    while (1) {
-      const mediaStyle = styleString.match(/(XS|SM|MD|LG)/gs)
-      if (mediaStyle) styleString = styleString.replace(/_(XS|SM|MD|LG)/, MEDIA[mediaStyle[0]])
-      else break
-    }
-
-    return styledComponent[tagNmae]`${styleString}`
+    return styledComponent[tagNmae](styleString, ...keys)
   }
 
 export default styled

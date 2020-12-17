@@ -71,7 +71,7 @@ const Banner = () => {
     return () => window.removeEventListener('resize', changeCoverSize)
   })
   return (
-    <AppBanner>
+    <AppBanner className="anchor">
       <Logo>
       <Cover on color="#61dafb" size={size}>
         <LogoImg src={logo} alt="logo" />
