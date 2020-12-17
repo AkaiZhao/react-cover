@@ -9988,10 +9988,10 @@ react-app-polyfill@^2.0.0:
     regenerator-runtime "^0.13.7"
     whatwg-fetch "^3.4.1"
 
-react-cover@^1.0.6:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/react-cover/-/react-cover-1.0.7.tgz#0e452e0a1cb68e82edaf71cd7f16b0f98ce696e0"
-  integrity sha512-laQrYq0jTBy9Spo13zZGPN9uWaRJIQ/b4kN42Pgs5IZhevyFS3NKSP32RCxuxrYq2EAxNNIMRBJOoUDg4b+EPQ==
+react-cover@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-cover/-/react-cover-1.0.8.tgz#0df7d87a33bfca4acebb7075366f885d045d2a18"
+  integrity sha512-EcNdq38U+n2BX03rv8eJeZoBNaLuG4iwV0X5n0q3ZVeoqdaqVA2cH4KoJR9SZrztPwd3NcOvU+FvIXV0qZ2Q5w==
 
 react-dev-utils@^11.0.1:
   version "11.0.1"

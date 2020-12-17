@@ -22,14 +22,6 @@ const LINKS = [
     href: '#documents',
     children: [
       {
-        name: 'With React Loading',
-        href: '#with-react-loading'
-      },
-      {
-        name: 'Custom',
-        href: '#custom'
-      },
-      {
         name: 'Props',
         href: '#Props'
       }
