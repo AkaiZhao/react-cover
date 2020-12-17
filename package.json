@@ -6,6 +6,7 @@
   "main": "dist/index.min.js",
   "types": "types/index.d.ts",
   "scripts": {
+    "demo": "cd ./demo && yarn && yarn start",
     "prepublish": "npm run build",
     "build": "rm -rf dist types && webpack",
     "start": "webpack --mode=development -w",
