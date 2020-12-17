@@ -31,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/AkaiZhao/react-cover/issues"
   },
-  "homepage": "https://github.com/AkaiZhao/react-cover",
+  "homepage": "https://akaizhao.github.io/react-cover/",
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0",
